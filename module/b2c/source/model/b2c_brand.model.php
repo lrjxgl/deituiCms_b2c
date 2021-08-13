@@ -16,7 +16,7 @@ class b2c_brandModel extends model{
 		}
 	}
 	
-	public function getListByIds($ids,$fields="id,title,,description,imgurl"){
+	public function getListByIds($ids,$fields="brandid,title,description,imgurl"){
 		$ids=array_unique($ids);
 		$rss=$this->select(array(
 			"where"=>" brandid in("._implode($ids).") ",
@@ -26,7 +26,7 @@ class b2c_brandModel extends model{
 			$data=array();
 			foreach($rss as $rs){
 				$rs["imgurl"]=images_site($rs["imgurl"]);
-				$data[$rs["id"]]=$rs;
+				$data[$rs["brandid"]]=$rs;
 				 
 			}
 			return $data;

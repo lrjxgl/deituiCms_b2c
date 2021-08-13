@@ -9,7 +9,7 @@ CREATE TABLE `sky_mod_b2c_brand` (
   `imgurl` varchar(225) NOT NULL DEFAULT '' COMMENT '图片',
   `description` varchar(225) NOT NULL DEFAULT '' COMMENT '描述',
   PRIMARY KEY (`brandid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='品牌';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 CREATE TABLE `sky_mod_b2c_cart` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT,
   `productid` int(11) NOT NULL DEFAULT '0' COMMENT '商品id',
@@ -19,8 +19,8 @@ CREATE TABLE `sky_mod_b2c_cart` (
   `ksid` int(11) NOT NULL DEFAULT '0' COMMENT '款式',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`) USING BTREE,
-  KEY `createtime` (`createtime`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+  KEY `createtime` (`createtime`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2182 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_category` (
   `catid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(16) CHARACTER SET utf8 NOT NULL DEFAULT '',
@@ -31,13 +31,13 @@ CREATE TABLE `sky_mod_b2c_category` (
   `description` varchar(225) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '描述',
   `ex_table_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '扩展表',
   PRIMARY KEY (`catid`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='分类';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_config` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `shoptype` varchar(12) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '类型',
   `vipcard` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='配置';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_coupon` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '名称',
@@ -51,7 +51,7 @@ CREATE TABLE `sky_mod_b2c_coupon` (
   `lower_money` decimal(9,1) unsigned NOT NULL DEFAULT '0.0' COMMENT '最低使用价格',
   `limit_num` int(11) NOT NULL DEFAULT '0' COMMENT '限制领取数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_coupon_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `coupon_id` int(11) NOT NULL DEFAULT '0' COMMENT '优惠券',
@@ -63,9 +63,9 @@ CREATE TABLE `sky_mod_b2c_coupon_user` (
   `lower_money` decimal(9,2) DEFAULT '0.00' COMMENT '最低使用价格',
   `end_time` int(11) NOT NULL DEFAULT '0' COMMENT '截止日期',
   PRIMARY KEY (`id`),
-  KEY `userid` (`userid`),
-  KEY `coupon_id` (`coupon_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='优惠券用户';
+  KEY `userid` (`userid`) USING BTREE,
+  KEY `coupon_id` (`coupon_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_group` (
   `gid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(32) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '名称',
@@ -73,17 +73,17 @@ CREATE TABLE `sky_mod_b2c_group` (
   `gnum` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT '记录数',
   `status` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`gid`),
-  KEY `gkey` (`gkey`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='产品聚合';
+  KEY `gkey` (`gkey`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_group_product` (
   `gpid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `gid` int(10) unsigned NOT NULL DEFAULT '0',
   `productid` int(10) unsigned NOT NULL DEFAULT '0',
   `orderindex` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`gpid`),
-  KEY `gid` (`gid`),
-  KEY `productid` (`productid`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='产品聚合';
+  KEY `gid` (`gid`) USING BTREE,
+  KEY `productid` (`productid`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_order` (
   `orderid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '订单',
   `orderno` varchar(36) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '订单号',
@@ -118,7 +118,7 @@ CREATE TABLE `sky_mod_b2c_order` (
   PRIMARY KEY (`orderid`),
   KEY `userid` (`userid`) USING BTREE,
   KEY `orderno` (`orderno`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='订单';
+) ENGINE=InnoDB AUTO_INCREMENT=818 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_order_address` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `orderid` int(11) NOT NULL DEFAULT '0',
@@ -132,7 +132,7 @@ CREATE TABLE `sky_mod_b2c_order_address` (
   `town_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `orderid` (`orderid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=818 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_order_data` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `orderid` int(10) unsigned NOT NULL DEFAULT '0',
@@ -142,7 +142,7 @@ CREATE TABLE `sky_mod_b2c_order_data` (
   `content` mediumtext CHARACTER SET utf8,
   PRIMARY KEY (`id`),
   KEY `orderid` (`orderid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=818 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_order_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `createtime` datetime NOT NULL DEFAULT '2019-02-28 06:01:01',
@@ -152,7 +152,7 @@ CREATE TABLE `sky_mod_b2c_order_log` (
   `userid` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `orderid` (`orderid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_order_product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `orderid` int(11) NOT NULL DEFAULT '0',
@@ -167,8 +167,8 @@ CREATE TABLE `sky_mod_b2c_order_product` (
   `content` varchar(225) CHARACTER SET utf8 NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `orderid` (`orderid`) USING BTREE,
-  KEY `productid` (`productid`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+  KEY `productid` (`productid`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1077 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_order_raty` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `orderid` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '订单',
@@ -179,9 +179,9 @@ CREATE TABLE `sky_mod_b2c_order_raty` (
   `raty_quality` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '质量',
   `content` varchar(225) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '内容',
   PRIMARY KEY (`id`),
-  KEY `orderid` (`orderid`),
-  KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='订单评价';
+  KEY `orderid` (`orderid`) USING BTREE,
+  KEY `userid` (`userid`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_pintuan_item` (
   `itemid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `productid` int(10) unsigned NOT NULL DEFAULT '0',
@@ -191,9 +191,9 @@ CREATE TABLE `sky_mod_b2c_pintuan_item` (
   `total_money` decimal(11,2) NOT NULL DEFAULT '0.00' COMMENT '总金额',
   `need_num` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '需要人数',
   PRIMARY KEY (`itemid`),
-  KEY `productid` (`productid`),
-  KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='拼团团购';
+  KEY `productid` (`productid`) USING BTREE,
+  KEY `userid` (`userid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_product` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(64) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '名称',
@@ -230,13 +230,13 @@ CREATE TABLE `sky_mod_b2c_product` (
   `imgsdata` text,
   `brandid` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `catid_status` (`catid`,`status`)
-) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='产品';
+  KEY `catid_status` (`catid`,`status`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `sky_mod_b2c_product_data` (
   `id` int(10) unsigned NOT NULL,
   `content` mediumtext CHARACTER SET utf8,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='产品';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='产品';
 CREATE TABLE `sky_mod_b2c_product_ks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productid` int(11) unsigned NOT NULL COMMENT '产品',
@@ -251,7 +251,7 @@ CREATE TABLE `sky_mod_b2c_product_ks` (
   `pt_price` decimal(11,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '拼团价格',
   PRIMARY KEY (`id`),
   KEY `productid` (`productid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 eof;
 ?>

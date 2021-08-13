@@ -8,5 +8,6 @@
 <meta name="description" content="<?php if ($this->_var['seo']): ?><?php echo $this->_var['seo']['description']; ?><?php else: ?><?php echo $this->_var['site']['description']; ?><?php endif; ?>" />
 <link href="//at.alicdn.com/t/font_811242_bl1740adjkh.css" rel="stylesheet" />
 <link href="/plugin/dt-ui/dt-ui-h5.css?vss2" rel="stylesheet" />
+<link href="/index.php?m=skinscolor" rel="stylesheet" /> 
 <link href="<?php echo $this->_var['skins']; ?>css/app.css" rel="stylesheet" />
 </head>

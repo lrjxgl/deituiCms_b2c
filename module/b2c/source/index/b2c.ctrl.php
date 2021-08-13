@@ -28,6 +28,7 @@ class b2cControl extends skymvc{
 			default:
 				$flashList=M("ad")->listByNo("wap-b2c-index");
 				$adList=M("ad")->listByNo("wap-b2c-ad");
+				
 				$navList=M("ad")->listByNo("wap-b2c-nav");
 				break;
 		}
@@ -48,7 +49,8 @@ class b2cControl extends skymvc{
 			"bmList"=>$bmList
 		));
 	 
-		$tpl=M("pagetpl")->get("b2c","index");	
+		$tpl=M("pagetpl")->get("b2c","index");
+			
 		$this->smarty->display($tpl);
 	}
 	 	

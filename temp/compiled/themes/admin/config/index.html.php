@@ -9,9 +9,9 @@
 	<div href="c_water" class="item">水印设置</div>
 	<div href="c_sms" class="item">短信设置</div>
 	<div href="c_invite" class="item">邀请设置</div>
-	<div href="c_pay" class="item">支付设置</div>
+	 
 	<div href="c_yingye" class="item">营业设置</div> 
- 
+	<div href="c_skins" class="item">风格设置</div>
 </div>	
 <div class="main-body">
   
@@ -24,11 +24,10 @@
         <div class="tabs-border-box" id="c_water"><?php echo $this->fetch('config/water.html'); ?></div>
         <div class="tabs-border-box" id="c_sms"><?php echo $this->fetch('config/sms.html'); ?></div>
         <div class="tabs-border-box" id="c_invite"><?php echo $this->fetch('config/invite.html'); ?></div>
-        <div class="tabs-border-box" id="c_pay"><?php echo $this->fetch('config/pay.html'); ?></div>
         
         <div class="tabs-border-box" id="c_email"><?php echo $this->fetch('config/email.html'); ?></div>
 		<div class="tabs-border-box" id="c_yingye"><?php echo $this->fetch('config/yingye.html'); ?></div>
-         
+         <div class="tabs-border-box" id="c_skins"><?php echo $this->fetch('config/skins.html'); ?></div>
       </div>
 			<div class="btn-row-submit js-submit" ungo="1">保存</div>
       
@@ -58,5 +57,26 @@ $("#testemail").click(function(){
 });
 
 </script>
+ 
+<script src="/plugin/colpick/js/colpick.js"></script>
+<link href="/plugin/colpick/css/colpick.css" rel="stylesheet">
+	<script>
+		var skinsolor="<?php if ($this->_var['data']['skinscolor']): ?><?php echo $this->_var['data']['skinscolor']; ?><?php else: ?>fff<?php endif; ?>";
+		 $('.skins-item').colpick({
+
+			color:skinsolor,
+		
+			onSubmit:function(hsb,hex,rgb,el) {
+		
+				$(el).css('background-color', '#'+hex);
+				$("#skinscolor").val(hex);
+				$(el).colpickHide();
+		
+			}
+		
+		})
+		
+		.css('background-color', '#'+skinsolor);
+	</script>
 </body>
 </html>

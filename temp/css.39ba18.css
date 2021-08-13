@@ -1,0 +1,69 @@
+/**头部风格***/
+.header,.header-show{
+ background-color: #39ba18;	
+ box-shadow: none;  
+}
+.header-back:after,.header-title{color: #fff;}
+
+.header-search{
+	background-color: rgba(0,0,0,.1);
+	border: 0 !important;
+	color: #fff;
+}
+.header-search::-webkit-input-placeholder { /* Edge */
+  color: #fff;
+}
+
+.header-search:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+.header-search::placeholder {
+  color: #fff;
+}
+.header-search-icon{
+	color: #fff;
+}
+.header-search-btn{
+	background-color: #39ba18 !important;
+    color: #fff;
+}
+.header-right{
+	color: #fff;
+}
+.header-right-btn{
+	color: #fff;
+	border-color: #fff;
+}
+/*****底部风格****/
+
+	.footer{
+		background-color: #39ba18;
+	}
+	.footer-item,.footer-item:before{
+		color: #e0e0e0;
+	}
+	.footer-add:after{
+		background-color: #39ba18;
+		color: #fff;
+	}
+	.footer-active, .footer-active:before {
+	    background-color: #39A618;
+	}
+	
+ 
+/*********/
+.btn-primary,.btn-row-submit,.input-flex-btn{
+	background-color: #39ba18;
+	border-color:#39ba18;
+}
+.cart-list-btn{
+	background-color:#39ba18 !important;
+}
+
+.btn,.btn-buy{
+	background-color: #39ba18;
+}
+.toast-success{
+	background-color: #39ba18  !important;
+}

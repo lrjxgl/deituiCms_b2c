@@ -17,7 +17,8 @@
 					<div @click="setType('unreceive')"  v-bind:class="{'tabs-border-active':type=='unreceive'}" class="tabs-border-item">待收货</div>
 					<div @click="setType('unraty')"  v-bind:class="{'tabs-border-active':type=='unraty'}" class="tabs-border-item">待评价</div>
 				</div>
-				<div class="item row-box mgb-10" v-for="(item,index) in list" :key="index">
+				<div v-if="list.length==0" class="emptyData">暂无订单</div>
+				<div v-else class="item row-box mgb-10" v-for="(item,index) in list" :key="index">
 					<div class="flex bd-mp-5">
 						<div v-if="item.ispin==1" class="mgr-5"><div class="btn-pin-cycle">拼</div></div>
 						<div class="flex-1 cl2">订单号：{{item.orderno}}</div>

@@ -1,9 +1,10 @@
 <?php
 class cmsVersion{
+	public static $adminIndexTpl="index/main.html";
 	public static function get(){
 		return array(
 			"version"=>"deituiB2C",
-			"version_num"=>4.1,
+			"version_num"=>5.0,
 			"onlineupdate"=>"https://www.deituicms.com/index.php?m=newversion&a=update&product=b2c",
 			"checkversion"=>"https://www.deituicms.com/index.php?m=newversion&product=b2c",
 			"checkshouquan"=>"https://www.deituicms.com/index.php?m=newversion&a=checkshouquan&product=b2c",

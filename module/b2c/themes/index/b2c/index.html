@@ -14,12 +14,12 @@
 		</div>
 		<div class="header-row"></div>
 		
-		<div class="main-body">
-			<div class="scale-swiper-box" style="padding-bottom: 50%;">
-				<div class="swiper-container scale-swiper-container" id="indexFlash">
+		<div class="main-body" id="diy-ui">
+			<div >
+				<div class="swiper-container" style="width: 100%;" id="indexFlash">
 					<div class="swiper-wrapper" >
 						{foreach item=c from=$flashList}
-						<div class="swiper-slide scale-swiper-slide">
+						<div class="swiper-slide">
 							<img class="wmax" src="{$c.imgurl}" />
 							 
 						</div>
@@ -52,6 +52,10 @@
 						 
 			</div>
 			{/if}
+			
+			<?php 
+				diyui("b2c","index"); 
+			?>
 			<div class="row-box-hd  pdl-10" >
 				<div class="iconfont mgr-10 icon-likefill cl-f30 f22"></div>
 				<div class="flex-1 ">

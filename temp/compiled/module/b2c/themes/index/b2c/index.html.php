@@ -14,14 +14,14 @@
 		</div>
 		<div class="header-row"></div>
 		
-		<div class="main-body">
-			<div class="scale-swiper-box" style="padding-bottom: 50%;">
-				<div class="swiper-container scale-swiper-container" id="indexFlash">
+		<div class="main-body" id="diy-ui">
+			<div >
+				<div class="swiper-container" style="width: 100%;" id="indexFlash">
 					<div class="swiper-wrapper" >
 						<?php $_from = $this->_var['flashList']; if (!is_array($_from) && !is_object($_from)) { $_from=array();}; $this->push_vars('', 'c');if (count($_from)):
     foreach ($_from AS $this->_var['c']):
 ?>
-						<div class="swiper-slide scale-swiper-slide">
+						<div class="swiper-slide">
 							<img class="wmax" src="<?php echo $this->_var['c']['imgurl']; ?>" />
 							 
 						</div>
@@ -58,6 +58,10 @@
 						 
 			</div>
 			<?php endif; ?>
+			
+			<?php 
+				diyui("b2c","index"); 
+			?>
 			<div class="row-box-hd  pdl-10" >
 				<div class="iconfont mgr-10 icon-likefill cl-f30 f22"></div>
 				<div class="flex-1 ">

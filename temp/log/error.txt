@@ -608,3 +608,6 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 ---2020-12-28 23:43:09--/admin.php?m=index&a=shouquan--
 <div class='item'>错误类型：WARNING<br> 内容：file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
 error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify failed  错误位置：D:\www\weiapp\b2c\source\admin\index.ctrl.php 行：147 </div>
+
+---2021-08-13 11:06:35--/module.php?m=b2c--
+<div class='item'>错误类型：WARNING<br> 内容：require(uicompent/md-abc-a.php): failed to open stream: No such file or directory  错误位置：D:\www\weiapp\b2c\extends\ex_diyui.php 行：32 </div>

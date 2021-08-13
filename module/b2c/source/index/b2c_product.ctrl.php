@@ -131,7 +131,13 @@
 				$where.=" AND (price>".$min." AND price<".$max." ) ";
 				$url.="&choicePrice=".$choicePrice;
 			}
-			 
+			//关键字
+			$keyword=get("keyword","h");
+			if($keyword){
+				$where.=" AND title like '%".$keyword."%' "; 
+				$url.="&keyword=".urlencode($keyword);
+			}
+			
 			 
 			$option=array(
 				"start"=>$start,
